@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <!-- <div id="app1"></div> -->
+        <script type="module">
+            // 原生的
+            // import {
+            //     reactive,
+            //     effect,
+            // } from "/node_modules/@vue/reactivity/dist/reactivity.esm-browser.js";
+
+            // // 创建响应式数据
+            // const state = reactive({
+            //     name: "jw",
+            //     age: 30,
+            // });
+            // // effect 会默认执行一次，数据变化了会执行一次（数据变化导致视图更新）
+            // effect(() => {
+            //     app.innerHTML = state.name + state.age;
+            // });
+
+            // setTimeout(() => {
+            //     state.age++;
+            // }, 1000);
+
+            import { reactive, effect } from "./reactivity.js";
+            const state = reactive({
+                name: "jw",
+                age: 30,
+            });
+            const state1 = reactive(state);
+            effect(() => {
+                app.innerHTML = state.name + "," + state.age;
+            });
+            // effect(() => {
+            //     app1.innerHTML = state.name + "," + state.age;
+            // });
+            // console.log(state === state1);
+            // state.name = "xxx";
+            setTimeout(() => {
+                state.age = 38;
+            }, 1000);
+        </script>
+    </body>
+</html>

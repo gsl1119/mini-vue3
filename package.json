@@ -1,0 +1,22 @@
+{
+    "name": "mini-vue3",
+    "private": true,
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "node scripts/dev.js reactivity -f esm"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^5.2.2",
+        "vue": "^3.2.36"
+    },
+    "dependencies": {
+        "esbuild": "^0.19.2",
+        "minimist": "^1.2.8"
+    }
+}
