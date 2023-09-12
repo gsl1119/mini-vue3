@@ -73,7 +73,9 @@ function trigger(target, key, value, oldValue) {
   const effects = depsMap.get(key);
   if (effects) {
     effects.forEach((effect3) => {
-      effect3.run();
+      if (activeEffect !== effect3) {
+        effect3.run();
+      }
     });
   }
 }
